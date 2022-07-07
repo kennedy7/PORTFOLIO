@@ -42,8 +42,8 @@
 
   <!-- ======= Header ======= -->
   <header id="header">
+   
     <div class="d-flex flex-column">
-
       <div class="profile">
         <img src="assets/img/profile-pic.png" alt="" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="cv.html">KENNEDY HILLARY</a></h1>
@@ -68,10 +68,19 @@
       </nav><!-- .nav-menu -->
     </div>
   </header><!-- End Header -->
-
+  <ul>
+    <% if(messages.success_msg) { %>
+      <div class="success-msg">
+        <i class="fa fa-check">
+    <li><%= messages.success_msg %></li>
+       </i>
+    <% } %>
+  </div>
+  </ul>
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
+
       <h1>KENNEDY HILLARY</h1>
       <p>I'm a/an <span class="typed" data-typed-items="Designer, Backend-Developer, crypto-trader, Engineer"></span></p>
     </div>
@@ -368,9 +377,7 @@
             </div>
 
           </div>
-
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-
             <form action="/contact" method="post">
               <div class="row">
                 <div class="form-group col-md-6">

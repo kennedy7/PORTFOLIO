@@ -9,16 +9,16 @@ router.post("/contact", (req, res)=>{
 var mail = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'mynodemailtestmail@gmail.com',
-        pass: 'lwatthpnjzantftq'
+        user: 'mytechportfolio1@gmail.com',
+        pass: 'otpcgoekchmnwoyt'
     },
 });
 
 var mailOptions = {
-    from: 'mynodemailtestmail@gmail.com',
-    to:  email,
-    subject: `Message From ${name}: ${subject}`,
-    text: `my name is ${name}, ${message}. you can reach me through ${email} ,`
+    from: email,
+    to:  'mytechportfolio1@gmail.com',
+    subject: `[PORTFOLIO MAIL] SUBJECT: ${subject}`,
+    text: `This is ${name}, ${message}. Reach back through ${email} ,`
    
     
 };
@@ -26,11 +26,12 @@ var mailOptions = {
 mail.sendMail(mailOptions, (err, data)=> {
     if (err) {
         console.log('mailing error');
-        console.log(err)
         res.send('invalid mail')
     } else {
         console.log('Email sent successfully:' + data.response);
-        res.send('mail sent to KENNEDY')
+        // req.flash("Mail has been sent to KENNEDY HILLARY");
+        // res.redirect("/");
+        res.render('emailsent')
     }
 })
 })

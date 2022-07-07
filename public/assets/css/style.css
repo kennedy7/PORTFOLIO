@@ -1072,3 +1072,27 @@ section {
     padding-right: 20px 15px;
   }
 }
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
+
+.info-msg,
+.success-msg,
+.warning-msg,
+.error-msg,
+.err-msg {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 3px 3px 3px 3px;
+}
+.info-msg {
+  color: #059;
+  background-color: #BEF;
+}
+.success-msg {
+  color: white;
+  background-color: #040b14 ;
+  
+}
+.warning-msg {
+  color: #9F6000;
+  background-color: #FEEFB3;
+}
