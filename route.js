@@ -3,28 +3,31 @@ const router = express.Router()
 const nodemailer = require ('nodemailer')
 
 router.post("/contact", (req, res)=>{
+    const { name, email, subject, message} = req.body
     console.log(req.body)
 //MAIL SETUP
-const transporter = nodemailer.createTransport({
+var mail = nodemailer.createTransport({
     service: 'gmail',
-    // port: 587,
-    //input your email login details to receive mail and test 
     auth: {
-        user: 'kennedyhillary6@gmail.com',
-        pass: 'AsuncionRaker'
-    }
+        user: 'mynodemailtestmail@gmail.com',
+        pass: 'lwatthpnjzantftq'
+    },
 });
 
-const mailOptions = {
-    from: req.body.emailAddress,
-    to: 'mynodemailtestmail@gmail.com',
-    subject: `message from  ${req.body.emailAddress}: ${req.body.subject}`,
-    text: req.body.message
+var mailOptions = {
+    from: 'mynodemailtestmail@gmail.com',
+    to:  email,
+    subject: `Message From ${name}: ${subject}`,
+    text: `my name is ${name}, ${message}. you can reach me through ${email} ,`
+   
+    
 };
 
-transporter.sendMail(mailOptions, function (err, data) {
+mail.sendMail(mailOptions, (err, data)=> {
     if (err) {
         console.log('mailing error');
+        console.log(err)
+        res.send('invalid mail')
     } else {
         console.log('Email sent successfully:' + data.response);
         res.send('mail sent to KENNEDY')
