@@ -8,7 +8,7 @@ const app = express();
 
 // //view engine
 // app.set("view engine", "ejs");
-// app.use(express.static("public"));
+app.use(express.static("public"));
 
 app.listen(PORT, () => {
   console.log(`server started on port ${PORT}`);
