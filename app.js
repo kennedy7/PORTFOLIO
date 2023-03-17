@@ -7,7 +7,8 @@ const path = require("path");
 const app = express();
 
 // //view engine
-app.use(express.static("public"));
+// app.set("view engine", "ejs");
+// app.use(express.static("public"));
 
 app.listen(PORT, () => {
   console.log(`server started on port ${PORT}`);
@@ -28,8 +29,6 @@ app.get("/", function (req, res) {
 });
 
 app.use(express.urlencoded({ extended: true }));
-// app.use(express.static("public"));
-// app.use(express.static(path.join(__dirname + "/public")));
 
 app.use(express.json());
 
