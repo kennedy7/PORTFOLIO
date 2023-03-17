@@ -32,7 +32,7 @@ app.get("/", function (req, res) {
 
 app.use(express.urlencoded({ extended: true }));
 // app.use(express.static("public"));
-// app.use(express.static(__dirname + "/views"));
+app.use(express.static(__dirname + "/public"));
 
 app.use(express.json());
 
